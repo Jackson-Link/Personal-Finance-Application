@@ -69,7 +69,7 @@ elif budget_choices_input == "4":
             chosen_accounts.append(available_accounts[key])
 
     if len(chosen_accounts) == 0:
-        print("❌ Error: You didn't select any valid accounts!")
+        print("Error: You didn't select any valid accounts!")
     else:
         print("\nNow, let's set your percentages for these selected accounts.")
         total_percentage = 0
@@ -84,7 +84,7 @@ elif budget_choices_input == "4":
 
 # If they typed something completely invalid
 else:
-    print("❌ Error: Invalid choice selected.")
+    print("Error: Invalid choice selected.")
 
 # 7. Do the Math and Display the Results (This block works for BOTH Presets and Custom!)
 if len(allocations) > 0:
