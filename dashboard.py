@@ -4,6 +4,7 @@ import os
 load_dotenv()  # Load environment variables from .env file
 from google.genai import Client
 from google.genai.types import HttpOptions
+import httpx
 import pandas as pd
 import sqlite3
 
@@ -20,20 +21,29 @@ cursor.execute("""
 """)
 conn.commit()
 
-client = Client(http_options=HttpOptions(timeout=15.0))
+# Code to get Integrated AI working
+os.environ["CURL_CA_BUNDLE"] = ""
+client = Client(http_options=HttpOptions(timeout=15.0),)
 
 st.title("Personal Finance Dashboard")
 
 # Creating different tabs for the dashboard
 tab_planner, tab_history, tab_insights = st.tabs(["Budget Planner", "Budget History", "Insights"])
 
+# Tab to figure out budgets based on your percents
 with tab_planner:
     st.header("Allocate your income")
     # Create side-by-side columns
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        income = st.slider("Monthly Income:", 0, 10000, 2000)
+        income = st.number_input(
+            label = "Total Monthly Income ($)",
+            min_value = 0.0,
+            value = 500.00,
+            step = 10.00,
+            format="%.2f"
+        )
 
     with col2:
         saving_pct = st.slider("Saving Percentage:", 0, 100, 20)
@@ -76,6 +86,10 @@ with tab_planner:
 
         conn.commit()
         st.success("Transaction history saved successfully!")
+
+
+
+# Tab to see recent history of budgets
 with tab_history:
     st.header("Budget History")
     # Creating Database History Table
@@ -88,6 +102,9 @@ with tab_history:
         conn.commit()
         st.success("Transaction history cleared successfully!")
 
+
+
+# AI Integration Section
 with tab_insights:
     st.header("Financial Insights")
     st.write("Ask me about investing rules, strategies, and tips for personal finance management!")
@@ -127,11 +144,6 @@ with tab_insights:
         with st.chat_message("assistant"):
             st.write(ai_response)
         st.session_state.message.append({"role": "assistant", "content": ai_response})
-
-
-
-
-
 
 # Close Database IMPORTANT
 conn.close()
