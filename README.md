@@ -4,7 +4,7 @@ This application was made so you can easily and freely input your income and adj
 On top of that it solved my problem with having to manually do every calculation on my phone after each paycheck and also allowed me to learn Python and SQL with it.
 
 Pre-Requisites:
-  Pytohno 3.10 - 3.13
+  Python 3.10 - 3.13
   Google AI Studio developer API key (If you want to use integrated AI chatbot)
 
 Installations & Dependicies:
