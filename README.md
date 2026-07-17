@@ -19,4 +19,6 @@ On top of that it solved my problem with having to manually do every calculation
 ### To Run Application:
   python -m streamlit run dashboard.py
 
+---
+
 Developer Note: The integrated Chatbot AI wont work unless your time zone is up to date, if your getting handshake errors sync your computers time.
