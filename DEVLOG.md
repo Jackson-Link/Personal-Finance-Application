@@ -25,3 +25,9 @@ A complete day-by-day version of the process of making this application
 - Almost got AI Chatbot setup but decided to not get stuck for a long time and actually work again on the main part
 - Switched around the slider for budgeting and made it a text based input with - + buttons
 - One day before vacation so might be a bit of a gap
+
+### Entry 5: Budget Tab Upgrade
+- Added buttons to enable or disable different accounts
+- Added new account types (HYD, Roth-IRA, Brokerage, Travel Fund, Charity)
+- Made sliders for each new button (Need to make them dissapear when the buttons are not enabled
+- Fixed database to work with new data
