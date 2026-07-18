@@ -1,6 +1,6 @@
 # Developer Log - Personal Finance App
 
-A complete day-by-day version of the process of making this application
+A complete session-by-session version of the process of making this application
 
 ---
 
